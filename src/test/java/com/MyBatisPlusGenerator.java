@@ -1,17 +1,19 @@
 package com;
  
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.GlobalConfig;
-import com.baomidou.mybatisplus.generator.config.PackageConfig;
-import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
+import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import net.logstash.logback.encoder.org.apache.commons.lang.StringUtils;
 
@@ -46,7 +48,8 @@ public class MyBatisPlusGenerator {
 					  .setServiceName("%sService")  // 设置生成的service接口的名字的首字母是否为I 如IEmployeeService
 						.setSwagger2(true)//实体属性 Swagger2 注解
 		 			  .setBaseResultMap(true)//生成基本的resultMap
-		 			  .setBaseColumnList(true);//生成基本的SQL片段 
+		 			  .setBaseColumnList(true)//生成基本的SQL片段
+		              .setOpen(false);
 				
 				//2. 数据源配置
 				DataSourceConfig  dsConfig  = new DataSourceConfig();
@@ -70,17 +73,29 @@ public class MyBatisPlusGenerator {
 				StrategyConfig strategy = new StrategyConfig();
 				strategy.setNaming(NamingStrategy.underline_to_camel);
 				strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-				//strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
+				strategy.setSuperEntityClass("com.rambo.plugin.module.advise.entity.BaseEntity");
 				strategy.setEntityLombokModel(true);
 				strategy.setRestControllerStyle(true);
-				// 公共父类
+		        strategy.setEntityBuilderModel(true);
+		        strategy.setEntityTableFieldAnnotationEnable(true);
+		        // 公共父类
 				//strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
 				// 写于父类中的公共字段
-				strategy.setSuperEntityColumns("id");
-				strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
+		        strategy.setSuperEntityColumns("id","create_time","create_user","update_time","update_user","delete_flag");
+		        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
 				strategy.setControllerMappingHyphenStyle(true);
 				strategy.setTablePrefix(pkConfig.getModuleName() + "_");
-				
+
+				InjectionConfig in = new InjectionConfig() {
+					@Override
+					public void initMap() {
+						Map<String, Object> map = new HashMap<String, Object>();
+						//自定义配置，在模版中cfg.superColums 获取
+						// TODO 这里解决子类会生成父类属性的问题，在模版里会用到该配置
+						map.put("superColums", this.getConfig().getStrategyConfig().getSuperEntityColumns());
+						this.setMap(map);
+					}
+				};
 
 				
 				//5. 整合配置
@@ -88,7 +103,8 @@ public class MyBatisPlusGenerator {
 				ag.setGlobalConfig(config)
 				  .setDataSource(dsConfig)
 				  .setStrategy(strategy)
-				  .setPackageInfo(pkConfig);
+				  .setPackageInfo(pkConfig)
+				  .setCfg(in);
 				
 				//6. 执行
 				ag.execute();

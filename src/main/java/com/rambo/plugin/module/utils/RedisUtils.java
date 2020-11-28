@@ -1,4 +1,4 @@
-package com.rambo.plugin.module.advise.mapper;
+package com.rambo.plugin.module.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.function.Supplier;
 
 @Repository
-public class RedisDao {
+public class RedisUtils {
 
     @Autowired
     private StringRedisTemplate template;
