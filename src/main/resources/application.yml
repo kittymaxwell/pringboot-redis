@@ -2,7 +2,7 @@ spring:
   profiles:
     active: @db_env@
   redis:
-    host: 192.168.124.6
+    host: 47.107.177.115
     port: 6379
     password:
     database: 0
@@ -16,17 +16,17 @@ spring:
   cache:
     type: redis
 
-  rabbitmq:
-    host: 192.168.124.6
-    username: guest
-    password: guest
-    port: 5672
-    publisher-returns: true
-    publisher-confirm-type: correlated
+  #rabbitmq:
+    #host: 192.168.124.6
+    #username: guest
+    #password: guest
+    #port: 5672
+    #publisher-returns: true
+    #publisher-confirm-type: correlated
 
   datasource:
     username: root
-    password: 123456
+    password: qwer1234
     #url: jdbc:mysql://localhost:3306/my_test?useUnicode=true&autoReconnect=true&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
 

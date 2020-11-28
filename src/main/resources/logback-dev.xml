@@ -29,9 +29,11 @@
             <charset>UTF-8</charset> <!-- 此处设置字符集 -->
         </encoder>
     </appender>
+
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
+    <!-- 定义日志输出的package包名 -->
     <logger name="springbootlearn.springbootredis" level="DEBUG">
         <appender-ref ref="baselog" />
     </logger>

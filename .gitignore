@@ -17,6 +17,20 @@
 
 *.class
 
+target
+
+/target/
+*.class
+*.jar
+*.log
+/logs/*
+/target/*
+.gitignore
+.classpath
+.settings*
+.project
+/.idea/*
+
   
 
 # Generated files
@@ -114,3 +128,5 @@ unused.txt
 mvnw
 mvnw.cmd
 HELP.md
+
+
