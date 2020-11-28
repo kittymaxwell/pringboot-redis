@@ -48,6 +48,9 @@ spring:
         enabled: true
         login-username: druid
         login-password: druid@2019
+  flyway:
+    clean-disabled: true
+    locations: classpath:db/migration
 
 
 # ====================MybatisPlus====================

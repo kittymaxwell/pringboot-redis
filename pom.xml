@@ -87,6 +87,12 @@
             <artifactId>springfox-swagger2</artifactId>
             <version>2.4.0</version>
         </dependency>
+      <!--  flayway-core依赖-->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>5.2.1</version>
+        </dependency>
         <!--elk-->
         <dependency>
             <groupId>net.logstash.logback</groupId>
