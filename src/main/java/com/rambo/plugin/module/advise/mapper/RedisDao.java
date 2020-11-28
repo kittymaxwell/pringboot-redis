@@ -1,4 +1,4 @@
-package com.rambo.plugin.module.dao;
+package com.rambo.plugin.module.advise.mapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;

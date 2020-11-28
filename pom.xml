@@ -60,6 +60,12 @@
              <artifactId>mybatis-plus-boot-starter</artifactId>
              <version>3.1.1</version>
          </dependency>
+       <!-- 代码自动生成-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.1.1</version>
+        </dependency>
         <!--&lt;!&ndash; Mybatis集成 &ndash;&gt;
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

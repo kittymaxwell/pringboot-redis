@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.rambo.plugin.module.dao.RedisDao;
+import com.rambo.plugin.module.advise.mapper.RedisDao;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
