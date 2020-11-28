@@ -36,5 +36,6 @@
     <!-- 定义日志输出的package包名 -->
     <logger name="springbootlearn.springbootredis" level="DEBUG">
         <appender-ref ref="baselog" />
+
     </logger>
 </configuration>
