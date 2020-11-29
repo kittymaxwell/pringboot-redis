@@ -1,5 +1,6 @@
 package com.rambo.plugin.exception;
 
+import com.rambo.plugin.common.R;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
@@ -29,8 +30,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseBody
-    public  ValidationResult resolveConstraintViolationException(ConstraintViolationException ex){
-        ValidationResult errorWebResult = new ValidationResult();
+    public R resolveConstraintViolationException(ConstraintViolationException ex){
+
         Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
         if(!CollectionUtils.isEmpty(constraintViolations)){
             StringBuilder msgBuilder = new StringBuilder();
@@ -41,17 +42,14 @@ public class GlobalExceptionHandler {
             if(errorMessage.length()>1){
                 errorMessage = errorMessage.substring(0,errorMessage.length()-1);
             }
-            errorWebResult.setInfo(errorMessage);
-            return errorWebResult;
+            return R.FAIL(errorMessage);
         }
-        errorWebResult.setInfo(ex.getMessage());
-        return errorWebResult;
+        return R.FAIL();
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
-    public ValidationResult resolveMethodArgumentNotValidException(MethodArgumentNotValidException ex){
-        ValidationResult errorWebResult = new ValidationResult();
+    public R resolveMethodArgumentNotValidException(MethodArgumentNotValidException ex){
         List<ObjectError>  objectErrors = ex.getBindingResult().getAllErrors();
         if(!CollectionUtils.isEmpty(objectErrors)) {
             StringBuilder msgBuilder = new StringBuilder();
@@ -62,10 +60,8 @@ public class GlobalExceptionHandler {
             if (errorMessage.length() > 1) {
                 errorMessage = errorMessage.substring(0, errorMessage.length() - 1);
             }
-            errorWebResult.setInfo(errorMessage);
-            return errorWebResult;
+            return R.FAIL(errorMessage);
         }
-        errorWebResult.setInfo(ex.getMessage());
-        return errorWebResult;
+        return R.FAIL();
     }
 }

@@ -1,9 +1,5 @@
-package com.rambo.plugin.module.advise.entity;
+package com.rambo.plugin.module.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.rambo.plugin.module.advise.entity.BaseEntity;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -25,8 +21,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @ApiModel(value="PluginAdvise对象", description="")
 public class PluginAdvise extends BaseEntity<PluginAdvise> {
-
-    private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "意见反馈内容")
     @TableField("content")

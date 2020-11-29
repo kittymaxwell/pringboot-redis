@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
-@MapperScan("com.rambo.plugin.module")
+@MapperScan("com.rambo.plugin.module.mapper")
 public class SpringbootPluginApplication {
 
     public static void main(String[] args) {

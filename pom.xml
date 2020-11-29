@@ -52,19 +52,32 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- guava工具包 -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.0-jre</version>
+        </dependency>
+
+        <!-- json工具包 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.32</version>
+        </dependency>
 
         <!--mybatis-plus自动的维护了mybatis以及mybatis-spring的依赖，
 38         在springboot中这三者不能同时的出现，避免版本的冲突，表示：跳进过这个坑-->
          <dependency>
              <groupId>com.baomidou</groupId>
              <artifactId>mybatis-plus-boot-starter</artifactId>
-             <version>3.1.1</version>
+             <version>3.4.1</version>
          </dependency>
        <!-- 代码自动生成-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.2.0</version>
+            <version>3.4.1</version>
         </dependency>
         <!--代码生成使用的模版引擎-->
         <dependency>
@@ -88,7 +101,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.10</version>
+            <version>1.1.18</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

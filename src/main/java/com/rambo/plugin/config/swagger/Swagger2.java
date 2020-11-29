@@ -26,7 +26,7 @@ public class Swagger2 {
                    .apiInfo(apiInfo())
                    .select()
                    // 为当前包路径
-                   .apis(RequestHandlerSelectors.basePackage("springbootlearn.springbootredis.controller")).paths(PathSelectors.any())
+                   .apis(RequestHandlerSelectors.basePackage("com.rambo.plugin.module")).paths(PathSelectors.any())
                    .build();
      }
      // 构建 api文档的详细信息函数,注意这里的注解引用的是哪个

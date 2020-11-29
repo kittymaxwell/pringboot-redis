@@ -1,6 +1,6 @@
-package com.rambo.plugin.module.advise.mapper;
+package com.rambo.plugin.module.mapper;
 
-import com.rambo.plugin.module.advise.entity.PluginAdvise;
+import com.rambo.plugin.module.entity.PluginAdvise;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
