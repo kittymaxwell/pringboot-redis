@@ -1,4 +1,4 @@
-package com.rambo.plugin.module.utils;
+package com.rambo.plugin.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;

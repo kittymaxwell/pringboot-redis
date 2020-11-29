@@ -1,5 +1,6 @@
 package com.rambo.plugin;
 
+import com.rambo.plugin.utils.RedisUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
@@ -7,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.rambo.plugin.module.utils.RedisUtils;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
